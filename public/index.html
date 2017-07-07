@@ -178,7 +178,7 @@
 <p>　　尽管getter/setter方法在Java中是很常见的，但是他们不是特别符合面向对象的思想。事实上，他们会使你的代码变得难易维护。此外，大量getter和setter方法的出现是一个危险信号，它意味着你的程序不能被很好的符合OO思想。</p>
 <p>　　这篇文章解释了为什么你不应该使用getters和setters方法（在你能用他们的时候），并且提出一个可以帮助你跳出getter/setter误区的设计思想。</p>
 <h2 id="设计的本质"><a href="#设计的本质" class="headerlink" title="设计的本质"></a>设计的本质</h2><p>　　在我开始一个具有有争议标题的技术专栏前，我想澄清一些事情。</p>
-<p>　　我被一些读者在”<a href="http://www.javaworld.com/article/2073649/core-java/why-extends-is-evil.html" target="_blank" rel="external">Why extends Is Evil</a>”一文下的评论给震惊了。一些人相信我宣称面向对象不是朴素的因为extents有问题，好像这两个论点是等价的。那绝对不是我想说的，所以我要澄清一些元问题（meta-issues）。<br>
+<p>　　我被一些读者在”<a href="http://www.javaworld.com/article/2073649/core-java/why-extends-is-evil.html" target="_blank" rel="external">Why extends Is Evil</a>”一文下的评论给震惊了。一些人相信我宣称面向对象不是朴素的因为extents有问题，好像这两个论点是等价的。那绝对不是我想说的，所以我要澄清一些元问题（meta-issues）。<br></p>
         
           <a class="article-more-a" href="/2017/01/10/why-getter-and-setter-methods-are-evil/#more">more >></a>
         
@@ -268,10 +268,8 @@
       
         <h1 id="为什么extends是魔鬼"><a href="#为什么extends是魔鬼" class="headerlink" title="为什么extends是魔鬼"></a>为什么extends是魔鬼</h1><p><strong><em>通过使用接口替换具体的base类来改进你的代码</em></strong></p>
 <p><a href="http://www.javaworld.com/javaworld/jw-08-2003/jw-0801-toolbox.html" target="_blank" rel="external">原文地址</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　<code>extends</code>关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(<code>implements</code>)替代实现继承(<code>extends</code>)。</p>
-<p>　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪习惯，以及介绍一些基于接口的编程基础。
-　　</p>
-<h2 id="接口与类"><a href="#接口与类" class="headerlink" title="接口与类"></a>接口与类</h2><p>　　一次我去参加一个Java用户小组会议，当时Java的发明者James Gosling是主讲人。在那个另人难忘的提问环节，有人问他：“如果给你个机会重新设计JAVA，你会做些什么改变？”。他回答道：“我会去除类”。在哄堂大笑之后他解释到从本质上问题不出在类本身而出在实现继承关系上。(<code>extends</code>关系)。接口继承（<code>implements</code>关系）是更好的。你应该尽可能的避免实现继承关系无论在何时。<br>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　<code>extends</code>关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(<code>implements</code>)替代实现继承(<code>extends</code>)。<br>　　<br>　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪习惯，以及介绍一些基于接口的编程基础。</p>
+<h2 id="接口与类"><a href="#接口与类" class="headerlink" title="接口与类"></a>接口与类</h2><p>　　一次我去参加一个Java用户小组会议，当时Java的发明者James Gosling是主讲人。在那个另人难忘的提问环节，有人问他：“如果给你个机会重新设计JAVA，你会做些什么改变？”。他回答道：“我会去除类”。在哄堂大笑之后他解释到从本质上问题不出在类本身而出在实现继承关系上。(<code>extends</code>关系)。接口继承（<code>implements</code>关系）是更好的。你应该尽可能的避免实现继承关系无论在何时。<br></p>
         
           <a class="article-more-a" href="/2017/01/06/why-extends-is-evil/#more">more >></a>
         
@@ -317,6 +315,83 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/01/06/why-extends-is-evil/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-hexo-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/04/hexo-install/">Mac上搭建基于Hexo+Github的Blog</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/04/hexo-install/" class="archive-article-date">
+  	<time datetime="2017-01-04T02:32:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　　听人说资深程序员要没自己的blog都不好意思跟人打招呼，为了出去好zhuangB，参考一些文章，花了大半天搭建了基于Hexo+Github的Blog。<br>主要参考了<a href="http://www.cnblogs.com/MuYunyun/p/5927491.html" target="_blank" rel="external">这篇文章</a>。<br><img src="/2017/01/04/hexo-install/helloworld.png" alt="logo"></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>　　Hexo基于NodeJs所以先需要安装NodeJS，可以去[官网]（<a href="https://nodejs.org/en/）下载安装，或者使用brew进行安装。还需要在GitHub上创建仓库以发布Blog。" target="_blank" rel="external">https://nodejs.org/en/）下载安装，或者使用brew进行安装。还需要在GitHub上创建仓库以发布Blog。</a><br></p>
+        
+          <a class="article-more-a" href="/2017/01/04/hexo-install/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hexo/" class="article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/04/hexo-install/">展开全文 >></a>
         </p>
       
 
@@ -423,6 +498,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -526,7 +609,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">扯王八犊子，拉裤兜子&lt;br&gt;就是这么刚毅</div>
   	  	
     	</section>
     

@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>为什么extends是魔鬼 | K页的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么extends是魔鬼通过使用接口替换具体的base类来改进你的代码 原文地址 前言　　extends关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(implements)替代实现继承(extends)。 　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪习">
+  <meta name="description" content="为什么extends是魔鬼通过使用接口替换具体的base类来改进你的代码 原文地址 前言　　extends关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(implements)替代实现继承(extends)。　　　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪">
 <meta name="keywords" content="Java,继承,翻译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么extends是魔鬼">
 <meta property="og:url" content="http://yoursite.com/2017/01/06/why-extends-is-evil/index.html">
 <meta property="og:site_name" content="K页的Blog">
-<meta property="og:description" content="为什么extends是魔鬼通过使用接口替换具体的base类来改进你的代码 原文地址 前言　　extends关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(implements)替代实现继承(extends)。 　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪习">
-<meta property="og:updated_time" content="2017-07-06T08:52:57.000Z">
+<meta property="og:description" content="为什么extends是魔鬼通过使用接口替换具体的base类来改进你的代码 原文地址 前言　　extends关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(implements)替代实现继承(extends)。　　　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪">
+<meta property="og:updated_time" content="2017-07-06T09:08:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么extends是魔鬼">
-<meta name="twitter:description" content="为什么extends是魔鬼通过使用接口替换具体的base类来改进你的代码 原文地址 前言　　extends关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(implements)替代实现继承(extends)。 　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪习">
+<meta name="twitter:description" content="为什么extends是魔鬼通过使用接口替换具体的base类来改进你的代码 原文地址 前言　　extends关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(implements)替代实现继承(extends)。　　　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪">
   
     <link rel="alternative" href="/atom.xml" title="K页的Blog" type="application/atom+xml">
   
@@ -174,9 +174,7 @@
       
         <h1 id="为什么extends是魔鬼"><a href="#为什么extends是魔鬼" class="headerlink" title="为什么extends是魔鬼"></a>为什么extends是魔鬼</h1><p><strong><em>通过使用接口替换具体的base类来改进你的代码</em></strong></p>
 <p><a href="http://www.javaworld.com/javaworld/jw-08-2003/jw-0801-toolbox.html" target="_blank" rel="external">原文地址</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　<code>extends</code>关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(<code>implements</code>)替代实现继承(<code>extends</code>)。</p>
-<p>　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪习惯，以及介绍一些基于接口的编程基础。
-　　</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　<code>extends</code>关键字是魔鬼。可能还没有达到Charles Manson的程度，但是也已经达到了需要敬而远之的地步。四人帮的设计模式一书详尽的讨论了使用接口继承(<code>implements</code>)替代实现继承(<code>extends</code>)。<br>　　<br>　　好的设计者基于接口编写代码而不是依靠具体的基础类。这篇文章阐述了为什么设计者有这种古怪习惯，以及介绍一些基于接口的编程基础。</p>
 <h2 id="接口与类"><a href="#接口与类" class="headerlink" title="接口与类"></a>接口与类</h2><p>　　一次我去参加一个Java用户小组会议，当时Java的发明者James Gosling是主讲人。在那个另人难忘的提问环节，有人问他：“如果给你个机会重新设计JAVA，你会做些什么改变？”。他回答道：“我会去除类”。在哄堂大笑之后他解释到从本质上问题不出在类本身而出在实现继承关系上。(<code>extends</code>关系)。接口继承（<code>implements</code>关系）是更好的。你应该尽可能的避免实现继承关系无论在何时。<br><a id="more"></a></p>
 <h2 id="失去灵活性"><a href="#失去灵活性" class="headerlink" title="失去灵活性"></a>失去灵活性</h2><p>　　为什么要避免实现继承关系？首当其冲的问题是明确使用具体的类名会把你与特定的实现捆绑在一起，这给以后的变更带来了不必要的麻烦。</p>
 <p>　　设计和开发并行是现代敏捷开发理念的核心观点。在完全设计好程序之前就已经开始着手开发了。这种技术悍然无视传统理论中开发之前必须有完备设计的观念，但是很多的成功项目都证明比起传统途径来你可以使用敏捷理念来更快速更有性价比的开发高质量代码。然而，在并行开发的理念中灵活性是核心理念。你不得不使你的代码能够做到只需很小的改动就能把新需求融合到现有的代码中去。</p>
@@ -192,7 +190,8 @@ g( LinkedList list )
     list.add( ... );
     g2( list )
 }
-</code></pre><p>　　   现在设想一个新的快速查找的需求出现了，因此LinkedList不能解决问题。你需要使用HashSet取代。在现在的代码里，这个改动不局限于一处因为你必须同事改动f函数和g函数以及所有像g函数那样获取这个list的方法。<br>　　重写代码如下:</p>
+</code></pre><p>　　现在设想一个新的快速查找的需求出现了，因此LinkedList不能解决问题。你需要使用HashSet取代。在现在的代码里，这个改动不局限于一处因为你必须同事改动f函数和g函数以及所有像g函数那样获取这个list的方法。</p>
+<p>　　重写代码如下:</p>
 <pre><code>f()
 {   Collection list = new LinkedList();
     //...
@@ -482,6 +481,11 @@ a_stack.clear();
     </a>
   
   
+    <a href="/2017/01/04/hexo-install/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac上搭建基于Hexo+Github的Blog</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
 </nav>
 
 
@@ -584,6 +588,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
@@ -689,7 +701,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">扯王八犊子，拉裤兜子&lt;br&gt;就是这么刚毅</div>
   	  	
     	</section>
     
