@@ -2,9 +2,9 @@
 title: Mac上搭建基于Hexo+Github的Blog
 date: 2017-01-04 10:32:42
 tags:
-  - hexo
+  - Hexo
   - 安装
-categories: hexo
+categories: Hexo
 
 ---
 

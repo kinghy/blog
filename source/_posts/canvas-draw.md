@@ -2,10 +2,10 @@
 title: 使用canvas绘制图片
 date: 2017-07-07 15:45:45
 tags:
-  - h5
+  - H5
   - canvas
   - drawImage
-categories: h5
+categories: H5
 
 ---
 
