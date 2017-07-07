@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Java | K页的Blog</title>
+  <title>使用canvas绘制图片 | K页的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="扯王八犊子，拉裤兜子子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="K页的Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Java/index.html">
+  <meta name="description" content="使用Canvas绘制图片绘制图片CanvasRenderingContext2D对象的哪些主要属性和方法： drawImage(mixed image, int x, int y)以canvas上指定的坐标点开始，按照图像的原始尺寸大小绘制整个图像。这里的image可以是Image对象，也可以是Canvas对象(下同)。 drawImage(mixed image, int x, int y, i">
+<meta name="keywords" content="h5,canvas,drawImage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用canvas绘制图片">
+<meta property="og:url" content="http://yoursite.com/2017/07/07/canvas-draw/index.html">
 <meta property="og:site_name" content="K页的Blog">
-<meta property="og:description" content="扯王八犊子，拉裤兜子子">
+<meta property="og:description" content="使用Canvas绘制图片绘制图片CanvasRenderingContext2D对象的哪些主要属性和方法： drawImage(mixed image, int x, int y)以canvas上指定的坐标点开始，按照图像的原始尺寸大小绘制整个图像。这里的image可以是Image对象，也可以是Canvas对象(下同)。 drawImage(mixed image, int x, int y, i">
+<meta property="og:updated_time" content="2017-07-07T08:19:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="K页的Blog">
-<meta name="twitter:description" content="扯王八犊子，拉裤兜子子">
+<meta name="twitter:title" content="使用canvas绘制图片">
+<meta name="twitter:description" content="使用Canvas绘制图片绘制图片CanvasRenderingContext2D对象的哪些主要属性和方法： drawImage(mixed image, int x, int y)以canvas上指定的坐标点开始，按照图像的原始尺寸大小绘制整个图像。这里的image可以是Image对象，也可以是Canvas对象(下同)。 drawImage(mixed image, int x, int y, i">
   
     <link rel="alternative" href="/atom.xml" title="K页的Blog" type="application/atom+xml">
   
@@ -150,144 +152,156 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-canvas-draw" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/10/why-getter-and-setter-methods-are-evil/" class="archive-article-date">
-  	<time datetime="2017-01-10T07:19:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/10/why-getter-and-setter-methods-are-evil/">为什么getter和setter方法是魔鬼</a>
+    <h1 class="article-title" itemprop="name">
+      使用canvas绘制图片
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/07/07/canvas-draw/" class="archive-article-date">
+  	<time datetime="2017-07-07T07:45:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用Canvas绘制图片"><a href="#使用Canvas绘制图片" class="headerlink" title="使用Canvas绘制图片"></a>使用Canvas绘制图片</h2><p>绘制图片CanvasRenderingContext2D对象的哪些主要属性和方法：</p>
+<p><code>drawImage(mixed image, int x, int y)</code><br>以canvas上指定的坐标点开始，按照图像的原始尺寸大小绘制整个图像。这里的image可以是Image对象，也可以是Canvas对象(下同)。</p>
+<p><code>drawImage(mixed image, int x, int y, int width, int height)</code><br>以canvas上指定的坐标点开始，以指定的大小(width和height)绘制整个图像，图像将根据指定的尺寸自动进行相应的缩放。</p>
+<p><code>drawImage(mixed image, int imageX, int imageY, int imageWidth, int imageHeight, int canvasX, int canvasY, int canvasWidth, int canvasHeight)</code><br>将指定图像的局部图像(以(imageX, imageY)为左上角、宽度为imageWidth、高度为imageHeight的矩形部分)绘制到canvas中以(canvasX,canvasY)为左上角坐标、宽度为canvasWidth、高度为canvasHeight的矩形区域中  </p>
+<p>很坑，drawImage()方法具有三种不同的变体，每个方法变体允许接收的参数不仅数量不同，连参数的含义也不尽相同。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="comment">//简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误  </span></div><div class="line"><span class="keyword">if</span>(canvas.getContext)&#123;  </div><div class="line">	<span class="comment">//获取对应的CanvasRenderingContext2D对象(画笔)  </span></div><div class="line">	<span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);  </div><div class="line">	<span class="comment">//创建新的图片对象  </span></div><div class="line">	<span class="keyword">var</span> img = <span class="keyword">new</span> Image();  </div><div class="line">	<span class="comment">//指定图片的URL  </span></div><div class="line">	img.src = <span class="string">"http://www.365mini.com/image/google_logo.png"</span>;  </div><div class="line">	<span class="comment">//浏览器加载图片完毕后再绘制图片  </span></div><div class="line">	img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">		<span class="comment">//以Canvas画布上的坐标(10,10)为起始点，绘制图像  </span></div><div class="line">		ctx.drawImage(img, <span class="number">10</span>, <span class="number">10</span>);  </div><div class="line">	&#125;;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="清除图片"><a href="#清除图片" class="headerlink" title="清除图片"></a>清除图片</h2><p>CanvasRenderingContext2D对象提供了一个可以永远重复使用的橡皮擦——clearRect()方法。</p>
+<p><code>clearRect(x, y, width, height)</code>  </p>
+<p>CanvasRenderingContext2D对象的<code>clearRect()</code>方法用于清除canvas内以指定坐标点(x,y)为左上角、宽度为width、高度为height的矩形区域中的所有图形像素。</p>
+<h2 id="正确设置Canvas高度"><a href="#正确设置Canvas高度" class="headerlink" title="正确设置Canvas高度"></a>正确设置Canvas高度</h2><p><font color="red"><strong>在js中设置canvas的宽高时，如果设置方式不正确，或者在cass中设置时，在绘制图像时就会出现拉伸的情况。这是因为canvas的默认宽高为300px<em>150px，在css中设置canvas的宽高，实际上是把canvas在300px</em>150px的基础上进行了拉伸。所以绘制出来的图像会发生变形。</strong></font><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">  </div><div class="line"><span class="keyword">var</span> winWidth = $(<span class="built_in">window</span>).width();</div><div class="line"><span class="keyword">var</span> winHeight = $(<span class="built_in">window</span>).height();</div><div class="line">$(<span class="string">"#cv"</span>).get(<span class="number">0</span>).width = winWidth;</div><div class="line">$(<span class="string">"#cv"</span>).get(<span class="number">0</span>).height = winHeight;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">h5</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">canvas</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">存储器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">getter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">setter</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">drawImage</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Java/" class="article-tag-list-link color5">Java</a>
+        			<a href="/categories/h5/" class="article-tag-list-link color3">h5</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/07/canvas-draw/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/06/why-extends-is-evil/" class="archive-article-date">
-  	<time datetime="2017-01-06T08:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/why-extends-is-evil/">为什么extends是魔鬼</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java/" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/10/why-getter-and-setter-methods-are-evil/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">为什么getter和setter方法是魔鬼</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -310,9 +324,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
