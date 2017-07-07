@@ -20,10 +20,10 @@ categories: h5
 
 `drawImage(mixed image, int imageX, int imageY, int imageWidth, int imageHeight, int canvasX, int canvasY, int canvasWidth, int canvasHeight)`  
 将指定图像的局部图像(以(imageX, imageY)为左上角、宽度为imageWidth、高度为imageHeight的矩形部分)绘制到canvas中以(canvasX,canvasY)为左上角坐标、宽度为canvasWidth、高度为canvasHeight的矩形区域中  
-  
+<!--more-->
 很坑，drawImage()方法具有三种不同的变体，每个方法变体允许接收的参数不仅数量不同，连参数的含义也不尽相同。
 {% codeblock lang:javascript %}
-  
+
 	var canvas = document.getElementById("myCanvas");
 	//简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误  
 	if(canvas.getContext){  
@@ -50,8 +50,9 @@ CanvasRenderingContext2D对象的`clearRect()`方法用于清除canvas内以指�
 
 ## 正确设置Canvas高度
 <font color="red">**在js中设置canvas的宽高时，如果设置方式不正确，或者在cass中设置时，在绘制图像时就会出现拉伸的情况。这是因为canvas的默认宽高为300px*150px，在css中设置canvas的宽高，实际上是把canvas在300px*150px的基础上进行了拉伸。所以绘制出来的图像会发生变形。**</font>  
-{% codeblock lang:javascript %}    
-	  
+{% codeblock lang:javascript %}
+
+	//使用jQuery
 	var winWidth = $(window).width();
 	var winHeight = $(window).height();
 	$("#cv").get(0).width = winWidth;
