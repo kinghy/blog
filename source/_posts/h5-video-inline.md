@@ -53,9 +53,7 @@ x5-video-player-type       | h5        | 启用同层H5播放器，就是在视�
 x5-video-orientation       | portraint | 声明播放器支持的方向，可选值landscape 横屏,portraint竖屏。默认值portraint。无论是直播还是全屏H5一般都是竖屏播放，但是这个属性需要x5-video-player-type开启H5模式 |
 x5-video-player-fullscreen | true      | 全屏设置。ture和false的设置会导致布局上的不一样 |
 
-
-
-
+<!--more-->
 	
 ## 同层播放
 如过使用前文中提到的最简单的视频播放代码：
@@ -76,8 +74,7 @@ iOS中点击播放会放大全屏播放；Android中点击播放之后会出现�
 	</video>
 
 效果很显著，视频不再自动最大化，并且可以在视频上叠上其他div层了。
-
- <img src="./h5-video-inline/i1.png" width = "300"  alt="图片名称" align=center />
+ <img src="h5-video-inline/i1.png" width = "300"  alt="图片名称" align=center />
 
 接下来要做的就是把视频根据屏幕自适应全屏化，思路是使用js获取页面展示界面的长款，然后使video标签绝对定位并且设置响应的长和宽
 
@@ -95,20 +92,20 @@ iOS中点击播放会放大全屏播放；Android中点击播放之后会出现�
 
 或者更简单的直接设置video中的width和height属性为100%。。。
 
- <img src="./h5-video-inline/i2.png" width = "300"  alt="图片名称" align=center />
+ <img src="h5-video-inline/i2.png" width = "300"  alt="图片名称" align=center />
  
 根据控制条的位置可以判断视频确实全屏了，这里有个问题是视频并没有像我们想想的那样被全屏拉伸，而只是保持了长宽比之后根据最大的缩放尺度拉伸之后居中播放，显然跟我们的要求有点出入，但是没关系，这问题我们放到以后再讲，先去解决android的问题。
 
 ### Android中的同层播放
 俺们先打开安卓中的chrome浏览器，因为据说iOS中的浏览器都使用了chrome相同的内核。
  
-<img src="./h5-video-inline/i3.jpg" width = "300"  alt="图片名称" align=center />
+<img src="h5-video-inline/i3.jpg" width = "300"  alt="图片名称" align=center />
 
 果然效果杠杠的，除了视频比例有点问题外其他完美。我们接着用系统自带浏览器打开，也没问题。
 
 最后我们用微信（或者QQ）打开链接，毫无悬念的出现了问题（废话，要是就这么简单，我就写blog了），在微信中点击播放之后又成了全屏播放。并且无法覆盖div层。
 
-<img src="./h5-video-inline/i4.jpg" width = "300"  alt="图片名称" align=center />
+<img src="h5-video-inline/i4.jpg" width = "300"  alt="图片名称" align=center />
  
 究其原因iOS微信浏览器是Chrome内核，支持playsinline属性，安卓微信浏览器是腾讯X5内核，playsinline属性是不支持的，因此，始终是全屏。
 
@@ -125,7 +122,7 @@ iOS中点击播放会放大全屏播放；Android中点击播放之后会出现�
 	    您的浏览器不支持 video 标签。
 	</video>
 
-<img src="./h5-video-inline/i5.jpg" width = "300"  alt="图片名称" align=center />
+<img src="h5-video-inline/i5.jpg" width = "300"  alt="图片名称" align=center />
 
 看上去还成，但是尼玛为什么上下还是回留有黑边呢？再仔细翻翻规范，回发现如下这段话：
 	x5-video-player-fullscreen全屏方式
@@ -157,7 +154,7 @@ iOS中点击播放会放大全屏播放；Android中点击播放之后会出现�
 	    }
 	</script>
 
-<img src="./h5-video-inline/i6.jpg" width = "300"  alt="图片名称" align=center />
+<img src="h5-video-inline/i6.jpg" width = "300"  alt="图片名称" align=center />
 
 感觉上基本完美了（左上和右上的两个按钮是真没法去掉了。。。）
 
@@ -174,7 +171,7 @@ iOS中点击播放会放大全屏播放；Android中点击播放之后会出现�
 
 最简单的是使用style里面的object-fit:fill;属性
 
-<img src="./h5-video-inline/i7.png" width = "300"  alt="图片名称" align=center />
+<img src="h5-video-inline/i7.png" width = "300"  alt="图片名称" align=center />
 
 是不是看着已经很完美了。。。但是这个属性有一个缺点就是兼容性不是很好，简单说安卓要4.4.3才能支持这个属性。截至到今天（2017年7月）安卓4.4以下版本占有率还有10%左右，如果还是有必要对这部分用户进行适配的。主要可以参看这篇文章:[巧用transform实现HTML5 video标签视频比例拉伸](http://www.cnblogs.com/liuxianan/p/html5-video-resize.html)
 核心思想就是算出视频长、宽和屏幕长、宽的最大比例差，然后按这个比例缩放之后，再旋转另一边，使其能适应屏幕尺寸，以下是我写的代码，使用了jQuery：
@@ -224,7 +221,7 @@ iOS中点击播放会放大全屏播放；Android中点击播放之后会出现�
 ### 自动转屏
 这个方案比较复杂，就是如果用户在横屏状态，但是我们的设计又要求是竖屏播放，那就把页面反方向旋转90度，是屏幕依然是竖屏的，入下图所示：
 
-<img src="./h5-video-inline/i8.png" width = "300"  alt="图片名称" align=center />
+<img src="h5-video-inline/i8.png" width = "300"  alt="图片名称" align=center />
 
 代码如下：
 
