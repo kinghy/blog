@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>为什么getter和setter方法是魔鬼 | K页的Blog</title>
+  <title>Tag: 手势 | K页的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么getter和setter方法是魔鬼通过避免使用存储器来使你的代码变得更易维护 原文地址 前言　　我没有打算开始一个“魔鬼的步伐”系列。但一些读者请我解释为什么我在上个月的专栏文章”Why extends Is Evil”中提到你应该避免使用get/set方法。 　　尽管getter/setter方法在Java中是很常见的，但是他们不是特别符合面向对象的思想。事实上，他们会使你的代码变得难易">
-<meta name="keywords" content="Java,翻译,存储器,getter,setter">
-<meta property="og:type" content="article">
-<meta property="og:title" content="为什么getter和setter方法是魔鬼">
-<meta property="og:url" content="http://yoursite.com/2017/01/10/why-getter-and-setter-methods-are-evil/index.html">
+  <meta name="description" content="扯王八犊子，拉裤兜子子">
+<meta property="og:type" content="website">
+<meta property="og:title" content="K页的Blog">
+<meta property="og:url" content="http://yoursite.com/tags/手势/index.html">
 <meta property="og:site_name" content="K页的Blog">
-<meta property="og:description" content="为什么getter和setter方法是魔鬼通过避免使用存储器来使你的代码变得更易维护 原文地址 前言　　我没有打算开始一个“魔鬼的步伐”系列。但一些读者请我解释为什么我在上个月的专栏文章”Why extends Is Evil”中提到你应该避免使用get/set方法。 　　尽管getter/setter方法在Java中是很常见的，但是他们不是特别符合面向对象的思想。事实上，他们会使你的代码变得难易">
-<meta property="og:updated_time" content="2017-07-06T08:52:55.000Z">
+<meta property="og:description" content="扯王八犊子，拉裤兜子子">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为什么getter和setter方法是魔鬼">
-<meta name="twitter:description" content="为什么getter和setter方法是魔鬼通过避免使用存储器来使你的代码变得更易维护 原文地址 前言　　我没有打算开始一个“魔鬼的步伐”系列。但一些读者请我解释为什么我在上个月的专栏文章”Why extends Is Evil”中提到你应该避免使用get/set方法。 　　尽管getter/setter方法在Java中是很常见的，但是他们不是特别符合面向对象的思想。事实上，他们会使你的代码变得难易">
+<meta name="twitter:title" content="K页的Blog">
+<meta name="twitter:description" content="扯王八犊子，拉裤兜子子">
   
     <link rel="alternative" href="/atom.xml" title="K页的Blog" type="application/atom+xml">
   
@@ -164,219 +162,87 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-why-getter-and-setter-methods-are-evil" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      为什么getter和setter方法是魔鬼
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/07/19/h5-long-push/" class="archive-article-date">
+  	<time datetime="2017-07-19T05:37:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-19</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/07/19/h5-long-push/">H5中的长按和滑动手势操作</a>
     </h1>
   
 
-        
-        <a href="/2017/01/10/why-getter-and-setter-methods-are-evil/" class="archive-article-date">
-  	<time datetime="2017-01-10T07:19:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="为什么getter和setter方法是魔鬼"><a href="#为什么getter和setter方法是魔鬼" class="headerlink" title="为什么getter和setter方法是魔鬼"></a>为什么getter和setter方法是魔鬼</h1><p><strong><em>通过避免使用存储器来使你的代码变得更易维护</em></strong></p>
-<p><strong><a href="http://www.javaworld.com/article/2073723/core-java/why-getter-and-setter-methods-are-evil.html" target="_blank" rel="external">原文地址</a></strong></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　我没有打算开始一个“魔鬼的步伐”系列。但一些读者请我解释为什么我在上个月的专栏文章”<a href="http://www.javaworld.com/article/2073649/core-java/why-extends-is-evil.html" target="_blank" rel="external">Why extends Is Evil</a>”中提到你应该避免使用get/set方法。</p>
-<p>　　尽管getter/setter方法在Java中是很常见的，但是他们不是特别符合面向对象的思想。事实上，他们会使你的代码变得难易维护。此外，大量getter和setter方法的出现是一个危险信号，它意味着你的程序不能被很好的符合OO思想。</p>
-<p>　　这篇文章解释了为什么你不应该使用getters和setters方法（在你能用他们的时候），并且提出一个可以帮助你跳出getter/setter误区的设计思想。</p>
-<h2 id="设计的本质"><a href="#设计的本质" class="headerlink" title="设计的本质"></a>设计的本质</h2><p>　　在我开始一个具有有争议标题的技术专栏前，我想澄清一些事情。</p>
-<p>　　我被一些读者在”<a href="http://www.javaworld.com/article/2073649/core-java/why-extends-is-evil.html" target="_blank" rel="external">Why extends Is Evil</a>”一文下的评论给震惊了。一些人相信我宣称面向对象不是朴素的因为extents有问题，好像这两个论点是等价的。那绝对不是我想说的，所以我要澄清一些元问题（meta-issues）。<br><a id="more"></a><br>　　这个专栏和过去几个月的文章都在讨论设计。设计从本质上来说以一种权衡。每一个选择都有其两面性，你需要在既定标准中做出决定。好和坏不是绝对的，一个好的决定一旦换了个环境就未必如此了。</p>
-<p>　　如果你不能理解问题的两面性，你就不能做出一个明智的选择。事实上，如果你不理解每个行动会带来的所有后果，你就完全不能进行设计。你在黑暗中蹒跚前行。在“四人帮”的《设计模式》一书中每一章节都包含“Consequences”一小结用来说明哪些情况不适用当前模式，这绝不仅仅是一种偶然。</p>
-<p>　　阐述某些语言的特性或普遍的程序设计风格（比如存取方法）有问题不等于说你决不能在任何情况下使用他们。同样的，一个特性或风格被普遍使用不意味着你也可以使用它。那些不明就里的写了许多程序并且受雇于Sun或者微软的不明就里的程序员不能魔法般的提高程序开发和设计的能力。JAVA开发包中包含了很多伟大的代码。但是同样有一部分代码我确定是他们的作者羞于承认的。</p>
-<p>　　出于同样的原因，营销或者政治动机经常推动着设计风格。有时候程序要做了错误的决定但是企业为了宣传他们的技术多牛B，所以他们前调你现在用的方法是不太理想的。当你仅仅是因为“这事你们应该这么干”而草率的接受了某些程序实践，那么你的行为是不负责任的。许多失败的EJB工程证明了这个原则。基于EJB的技术当你正确使用时是伟大的技术，但是当你滥用它的时候也能彻底的击倒一个企业。</p>
-<p>　　我的观点是你不能盲目的写程序。你必须理解一个特性或习惯所能造成的破坏。在这情况下，你会处于一个更有利的位置去决定是否需要使用这些特性或风格。你的选择会更合理更实用。这些文章的目的是帮助你用更开阔的视野去思考你的程序。</p>
-<h2 id="数据抽象"><a href="#数据抽象" class="headerlink" title="数据抽象"></a>数据抽象</h2><p>　　面向对象系统一个基本的原则是不要暴露任何实现细节。这样你可以修改你的实现而不改动用户代码。所以在面向对象系统中你应该避免getter和setter方法因为他们通常会保留实现细节。<br>　　<br>　　让我们来看为什么，假设在你的程序中有1000次的getX()方法的调用，每一个调用都假设了一个特定类型值的返回。你必须在本地变量中储层这个返回值，并且变量的类型必须和返回类型是相匹配的。如果你需要改变对象的实现从而导致X类型的改变，那么你就摊上大麻烦了。<br>　　<br>　　如果X曾是int型，但现在必须是long型，你会得到1000个编译错误。如果你只是简单的将返回值强制转换成int型，代码讲被编译通过，但未必能正常工作（返回值可能被截断）。为了这一个改动你必须逐一修改1000个调用。我肯定我不愿意去做这么多工作。<br>　　<br>　　面向对象系统的一个基本原则是数据抽象，你应该完全隐藏一个对象是如何处理从其他模块中获得的消息。这就是为什么你应该将所有实例对象(非常量)申明为private。</p>
-<p>　　 如果你将一个成员申明为public,那么无论类发生了什么变化这个变量都不能被改变，因为你会破坏外部代码对这个成员的使用。你不会愿意搜索1000处调用仅仅是因为你改动了那个类。</p>
-<p>　　隐藏实现原则提供了一个快速的检验OO系统质量的测试方法：你能否把类改得面目全非，却不影响任何用户的使用？模块化的匪类是面向对象的前提，它使得程序更易维护。没有实现的隐藏其他OO特性也就无从谈起。<br>　　<br>　　Getter和Setter方法（也被称为存储器）和公有成员变量都是危险的。他们暴露了实现细节。如果你要改变被访问字段的类型该怎么办？你也必须改变存储器的返回类型。你在无数地方使用了这个返回值，因此你必须全部更改这些代码。我希望限制修改单个类的所带来的影响，而不是波及到整个程序。</p>
-<p>　　既然存储器违反了封装原则，你就有理由主张一个过度滥用存储器的系统不符合面向对象思想。如果你不只是为了写代码而是认真检查设计流程，你能完全摒弃存储器，这个流程至关重要。我会在后文更详尽的阐述这个问题。</p>
-<p>　　减少getter/setter方法不意味着某些数据讲不能在系统中流动。尽管如此，数据流动还是越少越好。据我的经验系统可维护性是与数据在两个对象间交互的数量成反比的。经管你可能不知道，但是你可以消除绝大多数的数据移动。<br>　　<br>　　通过细致的设计并且着眼于你应该干什么而不是你怎么干，你可以消除绝大的多数的getter/setter方法。不要去请求完成工作需要的信息，而是让持有相关信息的对象去完成工作。大多数存储器提供了访问代码的手段因为设计者没有认真思考动态模型：为了完成工作所需要互相发送的动态对象和消息。他们的设计工作错误的由设计类的层级（类图）开始，然后试图把那些类强塞进动态模型。这种方式从来不能奏效。要设计一个静态模型，你需要发现类与类直接按的关联，这些关联完全与信息流相符合。一个联系存在与两个类之间，当且仅当有一个类的对象向其他类的对象发送了消息。静态模型的主要目的就是为你的动态模型捕捉这些关联。</p>
-<p>　　没有一个清晰的动态模型的定义，你只能猜想你会怎么使用一个类的对象。因此，存储方法会被大量绑定到模型上，你必须提供经可能多的存储方法因为你根本不能预测是否会用到他们。这类设计完全靠猜的策略是效率低下的。你把时间浪费在了写无用的方法上（或者给类加了不必要的能力）。</p>
-<p>　　存储器也是习惯思维的产物。当面向过程的程序员门接触到了Java，他们试图开始构建相似的代码。面向过程语言没有类，但他们有C结构体（struct,你可以把他看做没有方法的类）。然后理所当然地开始模仿设计结构体的方式去设计一个类，这个类除了公有成员没有其他的东西。这些面向过程的程序员们在其他一些地方知道了成员应该是私有的，然后他们把成员改成了私有并且提供了共有的存储方法。其实他们只是让共有调用变得复杂，而并没有让系统变得面向对象。</p>
-<h2 id="绘制自己"><a href="#绘制自己" class="headerlink" title="绘制自己"></a>绘制自己</h2><p>　　全字段封装的一个分支存在于UI构造器中。如果你不能使用存储器，你就不能在一个UI构造类中调用<code>getAttribute()</code>方法。取而代之的是类会提供一个drawYourself(…)方法。<br>　　<br>　　<code>getIdentity()</code>方法当然也能工作，假如他实现了Identity接口返回一个对象。这个接口必须包含<code>drawYourself()</code>方法（或者<strong>give-me-a-Component-that-represents-your-identity</strong>）。虽然<code>getIdentity</code>用“get”开头，但是他不是一个存储器因为他没有返回一个字段。他返回一个包含适当行为的复杂对象。甚至当我获得了一个Identity对象，我仍然不知道identity内部的细节。</p>
-<p>　　当然，<code>drawYourself()</code>策略意味着我把UI代码放入了业务逻辑。考虑下当UI表现发生变化时会发生什么事情。假设我想让一个属性以完全不同的方式来呈现，今天identity是一个名字，明天是一个名字和id，后天是一个名字、id和一张图。我把这些代码改动带来的影响限制在了一个地方。如果我有一个<strong>give-me-a-Component-that-represents-your-identity</strong>类，我已经将identity的表现与系统的其余部分隔离了开来。</p>
-<p>　　牢记一点，我没有把任何代码放入业务逻辑。我依据AWT或Swing框架编写UI层。这些UI代码是AWT/Swing的实现。使用抽象层来将其与子系统的业务逻辑隔离开是核心所在。我可以在不改任何代码的情况下轻松的接驳到其他绘图环境，唯一的问题是代码稍显杂乱。你可以将代码移到内部类中来相处这个问题（或者使用Facade设计模式）</p>
-<h2 id="JavaBeans"><a href="#JavaBeans" class="headerlink" title="JavaBeans"></a>JavaBeans</h2><p>　　你可能会反对说：“那么JavaBeans怎么办？” 怎么办？你完全可以不使用getters和setter来构造JavaBeans。BeanCustomizer,BeanInfo, 和 BeanDescriptor类都是为了这个目的而存在的。JavaBeans规范设计师们将getter/setter风格放入了规范因为他们认为当你已经学会了什么才是正确的时候，getter/setter可以让人们更容易的构造一个bean。很遗憾，没人去这样做。</p>
-<p>　　存储器仅仅是被创建来作为标记特定属性的标签之用，因为类似UI生成器之类的需要标识他们。你不被建议去自己调用这些方法。他们是为自动工具的调用准备的。这工具使用在Class类中的内省API来找到方法并且更具方法名来推断指定属性是否存在。在实践中基于内省的风格没有奏效。它反而是的代码更复杂更面向过程化。不理解数据抽象的程序员调用存储器必然导致，代码很难维护。基于这个原因，元数据特性会被包含进Java1.5。你将不必再这样变现:</p>
-<pre><code>private int property;
-public int getProperty  (　　 ){ return property; }
-public void setProperty (int value}{ property = value; }
-</code></pre><p>将来可以这样</p>
-<pre><code>private @property int property;
-</code></pre><p>类似于UI构造工具将使用内审API直接找到元素而不先通过测试方法名再去判断元素是否存在。因此，在有没有运行时存储器来破坏你的代码了。</p>
-<h2 id="何时存储器是有用的？"><a href="#何时存储器是有用的？" class="headerlink" title="何时存储器是有用的？"></a>何时存储器是有用的？</h2><p>　　首先，在讨论之初我说就过如果某个存储器方法返回的是以接口为单位的实例（这个接口是被当前对象实现的）那么这个存储器就是有效的，因为接口隔离了实现类内部的倪安东。这类的方法（返回一个接口引用）不是一个普通意义上提供直接操作字段功能的“getter”方法。如果你改变了提供者的内部实现，你只要改变返回对象的定义就能适应这些变化。你依然保护了那些通过对象接口来访问的外部代码。</p>
-<p>　　其次，我认为所有的OO系统都有一个面向过程分界层。绝大多数OO程序运行在面向过程的操作系统只上并且与面向过程的数据库通讯。这些外部过程化子系统的接口是通用性质的。Java Database Connectivity(JDBC)设计者并不知道你为何目的使用数据库，所以数据库类必须设计的通用和高度灵活。一般来说，不必要的灵活性是有害的，但是对于这些API来说过度的灵活性是不可避免的。这些边界类被简单的使用存储方法加载因为设计者别无选择。</p>
-<p>　　事实上，设计者不知道用户如何调用的问题充斥着整个Java包。如果你不能预测你将如何使用类对象那么淘汰所有存储器就是困难的。受制于此，Java设计者已经做了一切他们能做的去隐藏实现。这并不是说你的代码也应该采用jdbc的设计风格。绝不应该！我们一定知道我们的类是如何被使用的，所以我们不用浪费时间去创建不必要的灵活性。</p>
-<h2 id="一个设计策略"><a href="#一个设计策略" class="headerlink" title="一个设计策略"></a>一个设计策略</h2><p>　　 所以我们怎么抛弃getter和setter呢？</p>
-<p>　　 以用例为中心的OO设计过程:用户执行的有输出结果的特定任务。（登录不是一个用例因为它在问题域中缺少有用的结果输出。所以绘制一个账单是一个用例。）一个面向对象的系统实现了创建包含用例的各种场景所需的活动。实现用例的运行时对象通过向另一个对象发送消息来完成工作。当然，不是所有的消息都是等价的。如果你只是简单的构建了一个使用对象和类的面向过程的程序，那么你就不很难完成所有工作。</p>
-<p>　　1989年，Kent Beck 和 Ward Cunningharn在教授面向对象的设计课程时，曾对改变过度依赖get/set的心理做了如下的阐述：</p>
-<pre><code>在教授面向对象的程序设计时最困难的是让学习者放弃那些在面向过程程序中司空见惯的全局信息获取，转而依赖类本身的信息去完成他们的任务。新手的设计充斥着全局思维：非理由的全局变量、不必要的指针以及在实现过程中对其他类不恰当的依赖。
-</code></pre><p>　　Cunningham发展了一套能够很好展示设计过程的教学方法:CRC卡片（类，职责，协作）。最基本的做法是做一套4x6规格的索引卡片，用来展示三个方面：</p>
-<ul>
-<li>类：类对象的名字</li>
-<li>职责：那些类可以做什么。这些职责应该专注于一个特定技术范围内</li>
-<li>协作：可与当前类对象通讯的其他类对象。这里的东西越少越好</li>
-</ul>
-<p>　　CRC卡片最初的构想是基于一个假设——事情总会发生变化。</p>
-<p>　　Beck和Cunningham然后挑选一个用例，然后决定哪些对象会被要求执行这个用例做出最全面的假设。他们通常从两个类开始着手，不断的添加其他类用以实现用例。他们从班上挑选一些人来代表那些对象并发给他们一张相关的CRC卡片。如果他们需要一些给定的类对象，那么一些学生会被挑选来代表那些对象。</p>
-<p>　　然后这个班级开始根据以下规则实现用例：</p>
-<ul>
-<li>通过与其他人的沟通来完成用例包含的动作。</li>
-<li>你只能与你的协作对象进行交流。如果你必须和其他人交流，你应该交由一个能与那人交流的协作对象去完成，如果依然不行，你必须在你的CRC卡片上添加一个协作这。</li>
-<li>你不能去直接获取用来完成工作的信息。取而代之的，你必须请求拥有这些信息的对象去完成这个工作。把完成任务必须的信息传递给协作者是可以的，但是请把这些互动保持在最低限度。</li>
-<li>如果一些事情必须完成但是又没人能完成，那么创建一个新类和CRC卡片或者在已有的类和CRC卡片中添加一个职责。</li>
-<li>如果卡片写的太满，你必须创建其他的类和CRC卡片去分担一些指着。类的复杂度被4x6卡片的容量所限制。<br>　　<br>　　整个交流的记录就是程序的动态模型。最终完成的CRC卡片就是静态模型。通过不断的尝试和实践你可以使用这个方法解决任何问题。</li>
-</ul>
-<p>　　我刚刚描述的这个过程就是面向对象设计过程，尽管为适应课堂教学做了简化。一些人使用CRC卡片设计真实的程序。然而，更多的时候，设计者使用统一建模语言（UML）设计动态和静态模型。OO系统的要点是对象的通讯。如果你仔细思考，get/set方法在通讯过程是不需要的。同样的，在你开始编码之前，如果你以这种方式设计，get / set方法将不会出现在你的代码中。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>　　让我们总结一下：除非逼不得已你应该避免使用存储器因为这些方法暴露了类是如何实现的信息，从而导致你的代码变得难以维护。有时get/set方法不可避免，但是根据面向对象设计经验去掉你现在代码中99%的get/set方法是没有困难的。</p>
-<p>　　getter/setter方法往往会在代码中起到作用因为编写者使用过程思维来思考问题的，摆脱这种过程思维的最好方法是设想定义明确职责的对象之间的对话。Cunningham的CRC卡片方法是一个伟大的入门手段。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">touchstart</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">存储器</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">touchend</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">getter</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">手势</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">setter</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Java/" class="article-tag-list-link color5">Java</a>
+        			<a href="/categories/H5/" class="article-tag-list-link color3">H5</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/10/why-getter-and-setter-methods-are-evil/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/07/07/canvas-draw/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用canvas绘制图片
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/01/06/why-extends-is-evil/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">为什么extends是魔鬼</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -399,9 +265,9 @@ public void setProperty (int value}{ property = value; }
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

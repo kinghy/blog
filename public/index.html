@@ -164,6 +164,124 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-h5-long-push" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/19/h5-long-push/">H5中的长按和滑动手势操作</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/19/h5-long-push/" class="archive-article-date">
+  	<time datetime="2017-07-19T05:37:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在移动端H5中如果设计了一些需要长按或者滑动的手势操作有可能会和系统默认的一些操作相冲突，所以在编写这些手势时需要做一些特定的处理。<font color="red">为方便代码编写本文使用jQuey库。</font></p>
+<h2 id="浏览器默认长按事件"><a href="#浏览器默认长按事件" class="headerlink" title="浏览器默认长按事件"></a>浏览器默认长按事件</h2><p>为了更好的测试我们构建一个有多个元素构成的页面</p>
+<pre><code>&lt;body&gt;
+    &lt;button style=&quot;width: 200px;height: 200px;background-color: cornsilk;font-size: 64px&quot;&gt;点我&lt;/button&gt;&lt;br&gt;&lt;br&gt;
+    &lt;input style=&quot;width: 300px;height: 50px;background-color: cornsilk;font-size: 44px&quot;&gt;&lt;br&gt;&lt;br&gt;
+    &lt;div style=&quot;width: 300px;height: 150px;background-color: antiquewhite;font-size: 64px&quot;&gt;长按测试&lt;/div&gt;&lt;br&gt;&lt;br&gt;
+    &lt;div style=&quot;width: 300px;height: 150px;background-color: red;font-size: 64px&quot;&gt;长按测试&lt;/div&gt;&lt;br&gt;&lt;br&gt;
+    &lt;img src=&quot;resource/bg.png&quot;&gt;
+&lt;/body&gt;
+</code></pre><p>我们先从chrome开始，虽然我们的目标是移动端，但是为了方便期间都会在chrome上模拟手机端的进行第一步调试。<br>主要的默认行为是：</p>
+<ul>
+<li><p>长按空白处、图片、输入框，弹出默认系统弹框</p>
+<p><img src="/2017/07/19/h5-long-push/i1.png" width="300" alt="图片名称" align="center"></p>
+</li>
+<li><p>长按带有文字的控件会选中文字</p>
+<p><img src="/2017/07/19/h5-long-push/i2.png" width="100" alt="图片名称" align="center"></p>
+</li>
+</ul>
+<p>接下来是iOS</p>
+<ul>
+<li>长按带有文字的控件会选中文字</li>
+<li>长按图片会出现保存图像、分享之类的系统菜单</li>
+<li>长按任何位置出现放大镜</li>
+</ul>
+<p><img src="/2017/07/19/h5-long-push/i3.png" width="300" alt="图片名称" align="center"></p>
+<p>再来安卓：</p>
+<ul>
+<li>长按带有文字的控件会选中文字或者相同功能的菜单</li>
+<li>长按图片会出现保存图像、分享之类的系统菜单</li>
+</ul>
+<p>在我们需要实现自己的长按手势功能时以上的默认操作都是妨碍我们用户体验的绊脚石，所以我们要把他们一个一个搬掉。</p>
+        
+          <a class="article-more-a" href="/2017/07/19/h5-long-push/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">touchstart</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">touchend</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">手势</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/H5/" class="article-tag-list-link color3">H5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/19/h5-long-push/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-h5-video-inline" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -309,6 +427,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -781,23 +903,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">H5</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
+                <a href="javascript:void(0)" class="js-tag color1">touchstart</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">inline</a>
+                <a href="javascript:void(0)" class="js-tag color4">touchend</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">手势</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -806,6 +928,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">drawImage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">inline</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,6 +956,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">setter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
