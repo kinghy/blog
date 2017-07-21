@@ -154,6 +154,19 @@ oncontextmenu 事件在元素中用户右击鼠标时触发并打开上下文菜
 
 果然好使，我们的问题基本解决了（在屏幕左边向右滑动会后退的问题没法解决，因为这不是h5行为，所以请不要设计屏幕左侧像右滑动的交互）
 
+但是等一等。。。一旦屏蔽了window（或者body）的默认行为，一些控件比如页面上的输入框、按钮都不会触发点击效果，因为touchstart方法被拦截之后那些没有申明touchstart事件的控件的默认响应都被取消了。
+
+稍稍改进下代码，使得button和input能正常操作：
+
+    //屏蔽下拉滑动
+    $(window).on("touchstart",function (e) {
+        if(e.touches[0].target.nodeName!="BUTTON" && e.touches[0].target.nodeName!="INPUT"){
+            e.preventDefault();
+        }
+    })
+    
+现在唯一的问题是点在按钮或者输入框上依然可以触发下拉露出黑条。
+
 ##完整代码
 
 	<!DOCTYPE html>
@@ -219,3 +232,6 @@ oncontextmenu 事件在元素中用户右击鼠标时触发并打开上下文菜
 	        e.preventDefault();
 	    });
 	</script>
+	
+	
+	https://segmentfault.com/a/1190000003810312
