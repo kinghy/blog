@@ -167,6 +167,14 @@ oncontextmenu 事件在元素中用户右击鼠标时触发并打开上下文菜
     
 现在唯一的问题是点在按钮或者输入框上依然可以触发下拉露出黑条。
 
+再换一个思路，下拉出现黑条必然的操作都是手指滑动也就是touchmove时间，而点击只涉及到touchstart和touchend事件，那么我们只需要防止touchmove事件触发默认行为似乎就可以了：
+
+    $(window).on("touchmove",function (e) {
+        e.preventDefault();
+    })
+
+果然有作用，只是这个方式满足了现在的长按需求，但是到了需要有滑动手势的时候依然需要特殊处理，并没有十全十美的处理方案
+
 ##完整代码
 
 	<!DOCTYPE html>
@@ -189,21 +197,21 @@ oncontextmenu 事件在元素中用户右击鼠标时触发并打开上下文菜
 	
 	</style>
 	<body>
-		<button style="width: 200px;height: 200px;background-color: cornsilk;font-size: 64px">点我</button><br><br>
-		<input style="width: 300px;height: 50px;background-color: cornsilk;font-size: 44px"><br><br>
-		<div style="width: 300px;height: 150px;background-color: antiquewhite;font-size: 64px">长按测试</div><br><br>
-		<div style="width: 300px;height: 150px;background-color: red;font-size: 64px">长按测试</div><br><br>
-		<div  style="width: 500px;height: 700px;position: relative;">
-		    <img src="resource/bg.png" width="100%" height="100%">
-		    <div id="mask" style="position: absolute;top:0;left:0;width: 100%;height: 100%;z-index: 1000"></div>
-		</div>
+	<button style="width: 200px;height: 200px;background-color: cornsilk;font-size: 64px">点我</button><br><br>
+	<input style="width: 300px;height: 50px;background-color: cornsilk;font-size: 44px"><br><br>
+	<div style="width: 300px;height: 150px;background-color: antiquewhite;font-size: 64px">长按测试</div><br><br>
+	<div style="width: 300px;height: 150px;background-color: red;font-size: 64px">长按测试</div><br><br>
+	<div  style="width: 500px;height: 700px;position: relative;">
+	    <img src="resource/bg.png" width="100%" height="100%">
+	    <div id="mask" style="position: absolute;top:0;left:0;width: 100%;height: 100%;z-index: 1000"></div>
+	</div>
 	</body>
 	</html>
 	
 	<script>
 	    var handle ;
 	    $("#mask").on("touchstart",function (e) {
-	        e.preventDefault();
+	//        e.preventDefault();
 	        clearInterval(handle);
 	        handle = setInterval(function (e) {
 	            console.log("longpress")
@@ -212,9 +220,7 @@ oncontextmenu 事件在元素中用户右击鼠标时触发并打开上下文菜
 	        clearInterval(handle);
 	    })
 	    //屏蔽下拉滑动
-	    $(window).on("touchstart",function (e) {
-	        e.preventDefault();
-	    }).on("touchend",function (e) {
+	    $(window).on("touchmove",function (e) {
 	        e.preventDefault();
 	    })
 	
@@ -232,6 +238,3 @@ oncontextmenu 事件在元素中用户右击鼠标时触发并打开上下文菜
 	        e.preventDefault();
 	    });
 	</script>
-	
-	
-	https://segmentfault.com/a/1190000003810312

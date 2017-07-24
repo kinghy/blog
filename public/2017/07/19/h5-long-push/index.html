@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/07/19/h5-long-push/i2.png">
 <meta property="og:image" content="http://yoursite.com/2017/07/19/h5-long-push/i3.png">
 <meta property="og:image" content="http://yoursite.com/2017/07/19/h5-long-push/i4.png">
-<meta property="og:updated_time" content="2017-07-20T05:59:02.000Z">
+<meta property="og:updated_time" content="2017-07-24T06:18:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5中的长按和滑动手势操作">
 <meta name="twitter:description" content="在移动端H5中如果设计了一些需要长按或者滑动的手势操作有可能会和系统默认的一些操作相冲突，所以在编写这些手势时需要做一些特定的处理。为方便代码编写本文使用jQuey库。 浏览器默认长按事件为了更好的测试我们构建一个有多个元素构成的页面 &amp;lt;body&amp;gt;     &amp;lt;button style=&amp;quot;width: 200px;height: 200px;background-colo">
@@ -288,6 +288,20 @@ $(&quot;img&quot;).on(&quot;touchstart&quot;,function () {
     e.preventDefault();
 })
 </code></pre><p>果然好使，我们的问题基本解决了（在屏幕左边向右滑动会后退的问题没法解决，因为这不是h5行为，所以请不要设计屏幕左侧像右滑动的交互）</p>
+<p>但是等一等。。。一旦屏蔽了window（或者body）的默认行为，一些控件比如页面上的输入框、按钮都不会触发点击效果，因为touchstart方法被拦截之后那些没有申明touchstart事件的控件的默认响应都被取消了。</p>
+<p>稍稍改进下代码，使得button和input能正常操作：</p>
+<pre><code>//屏蔽下拉滑动
+$(window).on(&quot;touchstart&quot;,function (e) {
+    if(e.touches[0].target.nodeName!=&quot;BUTTON&quot; &amp;&amp; e.touches[0].target.nodeName!=&quot;INPUT&quot;){
+        e.preventDefault();
+    }
+})
+</code></pre><p>现在唯一的问题是点在按钮或者输入框上依然可以触发下拉露出黑条。</p>
+<p>再换一个思路，下拉出现黑条必然的操作都是手指滑动也就是touchmove时间，而点击只涉及到touchstart和touchend事件，那么我们只需要防止touchmove事件触发默认行为似乎就可以了：</p>
+<pre><code>$(window).on(&quot;touchmove&quot;,function (e) {
+    e.preventDefault();
+})
+</code></pre><p>果然有作用，只是这个方式满足了现在的长按需求，但是到了需要有滑动手势的时候依然需要特殊处理，并没有十全十美的处理方案</p>
 <p>##完整代码</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -309,21 +323,21 @@ $(&quot;img&quot;).on(&quot;touchstart&quot;,function () {
 
 &lt;/style&gt;
 &lt;body&gt;
-    &lt;button style=&quot;width: 200px;height: 200px;background-color: cornsilk;font-size: 64px&quot;&gt;点我&lt;/button&gt;&lt;br&gt;&lt;br&gt;
-    &lt;input style=&quot;width: 300px;height: 50px;background-color: cornsilk;font-size: 44px&quot;&gt;&lt;br&gt;&lt;br&gt;
-    &lt;div style=&quot;width: 300px;height: 150px;background-color: antiquewhite;font-size: 64px&quot;&gt;长按测试&lt;/div&gt;&lt;br&gt;&lt;br&gt;
-    &lt;div style=&quot;width: 300px;height: 150px;background-color: red;font-size: 64px&quot;&gt;长按测试&lt;/div&gt;&lt;br&gt;&lt;br&gt;
-    &lt;div  style=&quot;width: 500px;height: 700px;position: relative;&quot;&gt;
-        &lt;img src=&quot;resource/bg.png&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;
-        &lt;div id=&quot;mask&quot; style=&quot;position: absolute;top:0;left:0;width: 100%;height: 100%;z-index: 1000&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
+&lt;button style=&quot;width: 200px;height: 200px;background-color: cornsilk;font-size: 64px&quot;&gt;点我&lt;/button&gt;&lt;br&gt;&lt;br&gt;
+&lt;input style=&quot;width: 300px;height: 50px;background-color: cornsilk;font-size: 44px&quot;&gt;&lt;br&gt;&lt;br&gt;
+&lt;div style=&quot;width: 300px;height: 150px;background-color: antiquewhite;font-size: 64px&quot;&gt;长按测试&lt;/div&gt;&lt;br&gt;&lt;br&gt;
+&lt;div style=&quot;width: 300px;height: 150px;background-color: red;font-size: 64px&quot;&gt;长按测试&lt;/div&gt;&lt;br&gt;&lt;br&gt;
+&lt;div  style=&quot;width: 500px;height: 700px;position: relative;&quot;&gt;
+    &lt;img src=&quot;resource/bg.png&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;
+    &lt;div id=&quot;mask&quot; style=&quot;position: absolute;top:0;left:0;width: 100%;height: 100%;z-index: 1000&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 
 &lt;script&gt;
     var handle ;
     $(&quot;#mask&quot;).on(&quot;touchstart&quot;,function (e) {
-        e.preventDefault();
+//        e.preventDefault();
         clearInterval(handle);
         handle = setInterval(function (e) {
             console.log(&quot;longpress&quot;)
@@ -332,9 +346,7 @@ $(&quot;img&quot;).on(&quot;touchstart&quot;,function () {
         clearInterval(handle);
     })
     //屏蔽下拉滑动
-    $(window).on(&quot;touchstart&quot;,function (e) {
-        e.preventDefault();
-    }).on(&quot;touchend&quot;,function (e) {
+    $(window).on(&quot;touchmove&quot;,function (e) {
         e.preventDefault();
     })
 
@@ -461,6 +473,15 @@ $(&quot;img&quot;).on(&quot;touchstart&quot;,function () {
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/07/20/h5-view-port/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用viewport进行移动端H5页面适配
+        
+      </div>
+    </a>
   
   
     <a href="/2017/07/14/h5-video-inline/" id="article-nav-older" class="article-nav-link-wrap">
@@ -592,11 +613,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">viewport</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">canvas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">drawImage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,14 +658,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">setter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
