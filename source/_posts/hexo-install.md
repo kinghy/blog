@@ -62,6 +62,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 　　`$ sudo npm install -g hexo` 
 	
 	Hexo官网上的安装命令是$ npm install -g hexo-cli，安装时不要忘记前面加上sudo，否则会因为权限问题报错。
+	我在第二次安装时加上sudo反而出现了权限问题，去掉就好了
 
 　　创建一个blog目录，用于存放本地文件：  
 　　`mkdir blog`  

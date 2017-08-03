@@ -37,7 +37,3 @@ user-scalable| 	是否允许用户进行缩放，值为"no"或"yes", no 代表�
 <!--more-->
 
 在iphone和ipad上，无论你给viewport设的宽的是多少，如果没有指定默认的缩放值，则iphone和ipad会自动计算这个缩放值，以达到当前页面不会出现横向滚动条(或者说viewport的宽度就是屏幕的宽度)的目的。
-
-
- 	
- 	
